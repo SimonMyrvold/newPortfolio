@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('project_tag', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('project_id');
+            $table->integer('tag_id');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('project_tag');
     }
 };

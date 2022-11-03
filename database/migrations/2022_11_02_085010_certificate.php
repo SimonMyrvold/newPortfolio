@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('certificate', function (Blueprint $table) {
             $table->id();
+            $table->integer('certificate_picture');
             $table->string('certificate_name');
-            $table->timestamps();
+            $table->string('certificate_issuer');
+            $table->string('certificate_link');
         });
     }
 

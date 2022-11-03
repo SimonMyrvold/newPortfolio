@@ -15,7 +15,7 @@ class projectController extends Controller
     public function index()
     {
     
-        $posts = DB::select('SELECT * FROM project');
+        $posts = DB::select('SELECT * FROM project WHERE id = 1');
 
 
         dd($posts);

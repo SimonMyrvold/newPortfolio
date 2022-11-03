@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('picture_category', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('category_id');
+            $table->integer('picture_id');
         });
     }
 

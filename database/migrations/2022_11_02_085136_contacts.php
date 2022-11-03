@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->integer('contact_picture');
             $table->string('contact_type');
             $table->string('contact_link');
         });
