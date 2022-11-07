@@ -15,10 +15,9 @@ class projectController extends Controller
     public function index()
     {
     
-        $posts = DB::select('SELECT * FROM project WHERE id = 1');
+        $projects = DB::table('projects')->get();
 
-
-        dd($posts);
+        return view('project.index', compact('projects'));
 
     }
 
