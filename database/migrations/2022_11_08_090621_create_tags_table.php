@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use SebastianBergmann\CodeCoverage\Report\Xml\Projects;
 
 return new class extends Migration
 {
@@ -14,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->integer('project_picture')->default(1);
-            $table->string('project_name')->unique();
-            $table->text('project_description')->nullable();
-            $table->string('github')->nullable();
+            $table->string('tag_name');
+            $table->integer('tag_picture');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('tags');
     }
 };

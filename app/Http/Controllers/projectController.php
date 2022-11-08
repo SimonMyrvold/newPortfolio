@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,10 +15,10 @@ class projectController extends Controller
      */
     public function index()
     {
-    
-        $projects = DB::table('projects')->get();
 
-        return view('project.index', compact('projects'));
+        return view('project.index', [
+            'projects' => Project::orderBy('id', 'desc')->get()
+        ]);
 
     }
 
@@ -50,7 +51,10 @@ class projectController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return view('project.show', [
+            'project' => Project::findOrFail($id)
+        ]);
     }
 
     /**

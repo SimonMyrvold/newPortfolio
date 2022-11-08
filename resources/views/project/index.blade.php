@@ -8,8 +8,15 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+
     
-    {{ dump($projects) }}
+    
+
+    @foreach ($projects as $project)
+        <a href="{{ route('project.show', $project->id) }}">
+            {{ $project->project_name }}
+        </a>
+    @endforeach
 
 
 </body>
