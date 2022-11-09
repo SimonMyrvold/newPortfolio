@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tags extends Model
+class about_me extends Model
 {
     use HasFactory;
-
-    public function project() {
-        return $this->belongsToMany(Project::class);
-    }
 }

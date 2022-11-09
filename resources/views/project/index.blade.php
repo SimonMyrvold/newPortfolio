@@ -8,9 +8,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+    
+    
 
-    
-    
 
     @foreach ($projects as $project)
         <a href="{{ route('project.show', $project->id) }}">

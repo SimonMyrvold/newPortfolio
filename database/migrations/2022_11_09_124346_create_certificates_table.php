@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->string('tag_name');
-            $table->integer('tag_picture');
+            $table->unsignedBigInteger('certificate_picture');
+            $table->string('certificate_name');
+            $table->string('certificate_issuer');
             $table->timestamps();
+
+            $table->foreign('certificate_picture')->references('category_id')->on('picture_category')->onDelete('cascade');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('certificates');
     }
 };

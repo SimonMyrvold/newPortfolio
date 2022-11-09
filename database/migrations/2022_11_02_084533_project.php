@@ -16,11 +16,14 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->integer('project_picture')->default(1);
+            $table->unsignedBigInteger('project_picture');
             $table->string('project_name')->unique();
             $table->text('project_description')->nullable();
             $table->string('github')->nullable();
+            $table->string('demo')->nullable();
             $table->timestamps();
+
+            $table->foreign('project_picture')->references('category_id')->on('picture_category')->onDelete('cascade');
         });
     }
 
