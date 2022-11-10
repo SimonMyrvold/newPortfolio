@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('about_id');
             $table->string('certificate_name');
             $table->string('certificate_link');
+            $table-> foreign('about_id')->references('id')->on('abouts');
+            $table->timestamps();
         });
     }
 

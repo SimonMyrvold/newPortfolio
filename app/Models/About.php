@@ -16,4 +16,8 @@ class About extends Model
     public function Certificates(){
         return $this->hasMany(Certificate::class);
     }
+
+    protected $fillable = [
+        'description'
+    ];
 }

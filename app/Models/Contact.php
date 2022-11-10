@@ -9,7 +9,12 @@ class Contact extends Model
 {
     use HasFactory;
 
-    public function abouts(){
+    public function about(){
         return $this->belongsTo(About::class);
     }
+
+    protected $fillable = [
+            'contact_name',
+            'contact_link'
+    ];
 }

@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('about_id');
             $table->string('contact_name');
-            $table->string('link');
+            $table->string('contact_link');
+            $table-> foreign('about_id')->references('id')->on('abouts');
+            $table->timestamps();
         });
     }
 

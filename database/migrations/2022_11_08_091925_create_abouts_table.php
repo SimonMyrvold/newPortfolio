@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('contact_id');
-            $table->unsignedBigInteger('certificate_id');
+           // $table->unsignedBigInteger('certificate_id');
             $table->text('description');
-
-            $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
-            $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
+            $table->timestamps();
+         //  $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
         });
     }
 

@@ -12,4 +12,10 @@ class Certificate extends Model
     public function about(){
         return $this->belongsTo(About::class);
     }
+
+    
+    protected $fillable = [
+        'certificate_name',
+        'certificate_link'
+    ];
 }

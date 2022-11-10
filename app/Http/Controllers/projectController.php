@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\About;
+use App\Models\Contact;
 
 class projectController extends Controller
 {
@@ -16,11 +17,24 @@ class projectController extends Controller
      */
     public function index()
     {
-    
+
+
+        $abouts = DB::table('abouts')
+        ->join('contacts', 'abouts.id', '=', 'contacts.about_id')
+        ->Join('certificates', 'abouts.id', '=', 'certificates.about_id')
+        ->select('contacts.*','certificates.*')
+        ->get();
+
+        
+
+     
+        
         return view('project.index', [
             'projects' => Project::orderBy('id', 'desc')->get(),
-            'abouts' => About::orderBy('id', 'desc')->get()
+            'abouts' => $abouts
         ]);
+        
+
     
     }
 
