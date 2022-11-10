@@ -9,13 +9,9 @@
 </head>
 <body>
     
-    {{ dd($abouts) }}
-
-@foreach ($abouts as $about )
-
-<p>{{ $about->contact_name }}</p>
-
-@endforeach
+    @foreach ($contacts as $contact)
+        {{ $contact->contact_link }}
+    @endforeach
 
     @foreach ($projects as $project)
         <a href="{{ route('project.show', $project->id) }}">

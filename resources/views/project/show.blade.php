@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    {{ $about }}
 
     <h1>
         {{ $project->id }}

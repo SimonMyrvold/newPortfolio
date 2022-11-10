@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\About;
+use App\Models\Certificate;
 use App\Models\Contact;
 
 class projectController extends Controller
@@ -19,22 +20,12 @@ class projectController extends Controller
     {
 
 
-        $abouts = DB::table('abouts')
-        ->join('contacts', 'abouts.id', '=', 'contacts.about_id')
-        ->Join('certificates', 'abouts.id', '=', 'certificates.about_id')
-        ->select('contacts.*','certificates.*')
-        ->get();
-
-        
-
-     
-        
         return view('project.index', [
             'projects' => Project::orderBy('id', 'desc')->get(),
-            'abouts' => $abouts
+            'abouts' => About::orderBy('id', 'desc')->get(),
+            'contacts' => Contact::orderBy('id','desc')->get(),
+            'certificates' => Certificate::orderBy('id','desc')->get()
         ]);
-        
-
     
     }
 
@@ -70,7 +61,9 @@ class projectController extends Controller
 
         return view('project.show', [
             'project' => Project::findOrFail($id),
-            'about' => About::findOrFail($id)
+            'about' => About::findOrFail($id),
+            'contacts' => Contact::findOrFail($id),
+            'certificates' => Certificate::findOrFail($id)
         ]);
 
 
