@@ -8,8 +8,8 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    
-    
+
+    {{ $about }}
 
     <h1>
         {{ $project->id }}

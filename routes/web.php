@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\portfolioController;
 use App\Http\Controllers\projectController;
+use App\Http\Controllers\AboutsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 
 Route::resource('project', projectController::class);
+

@@ -16,10 +16,7 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('tag_name');
-            $table->unsignedBigInteger('tag_picture');
             $table->timestamps();
-
-            $table->foreign('tag_picture')->references('category_id')->on('picture_category')->onDelete('cascade');
         });
     }
 

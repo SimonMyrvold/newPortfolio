@@ -17,14 +17,12 @@ class projectTableSeeder extends Seeder
     {
         $projects = [
             [
-                'project_picture' => '1',
                 'project_name' => 'test',
                 'project_description' => 'none',
                 'github' => 'none',
                 'demo' => 'none',
             ],
             [
-                'project_picture' => '2',
                 'project_name' => 'test2',
                 'project_description' => 'none',
                 'github' => 'none',

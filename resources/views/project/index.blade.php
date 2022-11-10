@@ -9,8 +9,11 @@
 </head>
 <body>
     
-    
 
+
+    @foreach ($abouts as $about)
+    {{ $about }}
+    @endforeach
 
     @foreach ($projects as $project)
         <a href="{{ route('project.show', $project->id) }}">

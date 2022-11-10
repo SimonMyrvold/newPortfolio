@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\About;
 
 class projectController extends Controller
 {
@@ -15,11 +16,12 @@ class projectController extends Controller
      */
     public function index()
     {
-
+    
         return view('project.index', [
-            'projects' => Project::orderBy('id', 'desc')->get()
+            'projects' => Project::orderBy('id', 'desc')->get(),
+            'abouts' => About::orderBy('id', 'desc')->get()
         ]);
-
+    
     }
 
     /**
@@ -53,8 +55,12 @@ class projectController extends Controller
     {
 
         return view('project.show', [
-            'project' => Project::findOrFail($id)
+            'project' => Project::findOrFail($id),
+            'about' => About::findOrFail($id)
         ]);
+
+
+        
     }
 
     /**

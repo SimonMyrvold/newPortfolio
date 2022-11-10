@@ -15,12 +15,8 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('certificate_picture');
             $table->string('certificate_name');
-            $table->string('certificate_issuer');
-            $table->timestamps();
-
-            $table->foreign('certificate_picture')->references('category_id')->on('picture_category')->onDelete('cascade');
+            $table->string('certificate_link');
         });
     }
 

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Certificate extends Model
 {
     use HasFactory;
+
+    public function about(){
+        return $this->belongsTo(About::class);
+    }
 }

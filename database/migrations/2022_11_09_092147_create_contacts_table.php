@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('contact_picture');
             $table->string('contact_name');
-            $table->string('contact_link');
-
-            $table->foreign('contact_picture')->references('category_id')->on('picture_category')->onDelete('cascade');
+            $table->string('link');
         });
     }
 
