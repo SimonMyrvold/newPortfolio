@@ -19,7 +19,6 @@ class projectController extends Controller
     public function index()
     {
 
-
         return view('project.index', [
             'projects' => Project::orderBy('id', 'desc')->get(),
             'abouts' => About::orderBy('id', 'desc')->get(),
@@ -58,6 +57,8 @@ class projectController extends Controller
      */
     public function show($id)
     {
+
+
 
         return view('project.show', [
             'project' => Project::findOrFail($id),

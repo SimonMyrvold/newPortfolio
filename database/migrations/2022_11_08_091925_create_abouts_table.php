@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-           // $table->unsignedBigInteger('certificate_id');
+            $table->string('name');
             $table->text('description');
+            $table->integer('picture_category')->default('3');
             $table->timestamps();
-         //  $table->foreign('certificate_id')->references('id')->on('certificates')->onDelete('cascade');
         });
     }
 

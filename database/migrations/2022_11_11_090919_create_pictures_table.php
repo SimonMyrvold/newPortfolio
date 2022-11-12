@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('certificates', function (Blueprint $table) {
+        Schema::create('pictures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('about_id');
-            $table->string('certificate_name');
-            $table->string('certificate_link');
-            $table->foreign('about_id')->references('id')->on('abouts');
-            $table->integer('picture_category')->default('5');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('certificates');
+        Schema::dropIfExists('pictures');
     }
 };

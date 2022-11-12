@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('contact_name');
             $table->string('contact_link');
             $table-> foreign('about_id')->references('id')->on('abouts');
+            $table->integer('picture_category')->default('4');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class AboutFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->name('simon'),
             'description' => $this->faker->sentence(15)
         ];
     }

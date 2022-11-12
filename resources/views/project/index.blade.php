@@ -8,16 +8,39 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    
-    @foreach ($contacts as $contact)
-        {{ $contact->contact_link }}
-    @endforeach
 
-    @foreach ($projects as $project)
-        <a href="{{ route('project.show', $project->id) }}">
-            {{ $project->project_name }}
-        </a>
-    @endforeach
+<h1>about</h1>
+
+@foreach ($abouts as $about )
+
+<p>{{ $about->picture_category }}</p>
+
+@endforeach
+
+
+<h1>contact</h1>
+
+@foreach ($contacts as $contact )
+
+<p>{{ $contact->contact_name }}</p>
+
+@endforeach
+
+<h1>certificate</h1>
+
+@foreach ($certificates as $certificate )
+
+<p>{{ $certificate->certificate_name }}</p>
+
+@endforeach
+
+<h1>project</h1>
+
+@foreach ($projects as $project)
+    <a href="{{ route('project.show', $project->id) }}">
+        {{ $project->project_name }}
+    </a>
+@endforeach
 
 
 </body>

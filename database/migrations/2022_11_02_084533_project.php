@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('project_name')->unique();
             $table->text('project_description')->nullable();
+            $table->integer('picture_category')->default('2');
             $table->string('github')->nullable();
             $table->string('demo')->nullable();
             $table->timestamps();
