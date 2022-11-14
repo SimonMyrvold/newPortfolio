@@ -9,13 +9,8 @@
 </head>
 <body>
      
-        {{ $about }}
 
-        {{-- @foreach ($about->picture_category as $pictures)
-            {{ $pictures }}
-        @endforeach --}}
-
-    {{-- <h1>
+    <h1>
         {{ $project->id }}
         {{ $project->project_picture }}
         {{ $project->project_name }}
@@ -28,9 +23,9 @@
         <br> --}}
         
         
-        {{-- @foreach ($project->tags as $tags)
+        @foreach ($project->tags as $tags)
             {{ $tags->tag_name }}
-        @endforeach --}}
+        @endforeach
 
         
 </body>

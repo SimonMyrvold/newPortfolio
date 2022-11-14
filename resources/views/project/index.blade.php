@@ -11,14 +11,15 @@
 
 <h1>about</h1>
 
-@foreach ($abouts as $about )
 
-<p>{{ $about->picture_category }}</p>
+@foreach ($abouts as $about)
+
+   {{ $about->Category }}
 
 @endforeach
 
 
-<h1>contact</h1>
+{{-- <h1>contact</h1>
 
 @foreach ($contacts as $contact )
 
@@ -40,7 +41,7 @@
     <a href="{{ route('project.show', $project->id) }}">
         {{ $project->project_name }}
     </a>
-@endforeach
+@endforeach --}}
 
 
 </body>

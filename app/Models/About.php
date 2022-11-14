@@ -17,8 +17,8 @@ class About extends Model
         return $this->hasMany(Certificate::class);
     }
 
-    public function picture_category(){
-        return $this->belongsToMany(Picture::class);
+    public function Category(){
+        return $this->belongsTo(Category::class);
     }
 
     protected $fillable = [
