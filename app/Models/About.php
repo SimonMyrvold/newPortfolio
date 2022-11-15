@@ -9,16 +9,12 @@ class About extends Model
 {
     use HasFactory;
 
-    public function contacts(){
+    public function Contacts(){
         return $this->hasMany(Contact::class);
     }
 
     public function Certificates(){
         return $this->hasMany(Certificate::class);
-    }
-
-    public function Category(){
-        return $this->belongsTo(Category::class);
     }
 
     protected $fillable = [

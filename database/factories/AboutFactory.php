@@ -18,7 +18,8 @@ class AboutFactory extends Factory
     {
         return [
             'name' => $this->faker->name('simon'),
-            'description' => $this->faker->sentence(15)
+            'description' => $this->faker->sentence(15),
+            'picture' => $this->faker->url(),
         ];
     }
 }

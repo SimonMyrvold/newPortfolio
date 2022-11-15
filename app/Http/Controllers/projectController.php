@@ -19,7 +19,7 @@ class projectController extends Controller
     public function index()
     {
 
-        
+
 
         return view('project.index', [
             'projects' => Project::orderBy('id', 'desc')->get(),

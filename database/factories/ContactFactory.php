@@ -19,6 +19,8 @@ class ContactFactory extends Factory
         return [
             'contact_name' => $this->faker->lastName(),
             'contact_link' => $this->faker->url(),
+            'picture' => $this->faker->url(),
+            'about_id' => 1,
         ];
     }
 }

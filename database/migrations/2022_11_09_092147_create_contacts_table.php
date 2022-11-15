@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('about_id');
             $table->string('contact_name');
             $table->string('contact_link');
-            $table-> foreign('about_id')->references('id')->on('abouts');
-            $table->integer('picture_category')->default('4');
+            $table->string('picture');
+            $table->unsignedBigInteger('about_id')->default('1');
             $table->timestamps();
+
+            $table->foreign('about_id')->references('id')->on('abouts');
         });
     }
 

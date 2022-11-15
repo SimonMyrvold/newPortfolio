@@ -19,6 +19,8 @@ class CertificateFactory extends Factory
         return [
             'certificate_name' => $this->faker->lastName(),
             'certificate_link' => $this->faker->url(),
+            'picture' => $this->faker->url(),
+            'about_id' => 1,
         ];
     }
 }

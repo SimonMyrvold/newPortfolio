@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="./css/main.css">
 
     </head>
+
+
     <body onload="showevent()">
 
         <img class="background-img" src="img/backgroundImage.jpg" alt="">
