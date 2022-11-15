@@ -9,53 +9,30 @@
 </head>
 <body>
 
+<a href="{{ route('project.create') }}">create</a>
+
 <h1>about</h1>
 
-hej
-
-@foreach ($abouts as $about)
-
-@foreach ($about->Certificates as $certificates)
-    
-    {{ $certificates->certificate_name }}
-
-@endforeach
 
 <br>
 
-@foreach ($about->Contacts as $contacts)
-    
-    {{ $contacts->contact_name }}
 
-@endforeach
-
-@endforeach
-
-
-
-{{-- <h1>contact</h1>
-
-@foreach ($contacts as $contact )
-
-<p>{{ $contact->contact_name }}</p>
-
-@endforeach
-
-<h1>certificate</h1>
-
-@foreach ($certificates as $certificate )
-
-<p>{{ $certificate->certificate_name }}</p>
-
-@endforeach
 
 <h1>project</h1>
 
 @foreach ($projects as $project)
+
     <a href="{{ route('project.show', $project->id) }}">
         {{ $project->project_name }}
     </a>
-@endforeach --}}
+
+@endforeach
+
+@foreach ($projects as $project)
+
+<a href="{{ route('project.edit', $project->id) }}" class="block italic text-green-500 border-b-1 border-green-400">Edit</a>
+
+@endforeach
 
 
 </body>

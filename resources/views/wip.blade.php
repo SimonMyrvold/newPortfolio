@@ -10,6 +10,9 @@
 
     </head>
 
+    <a href="{{ route('project.index') }}">project</a>
+
+    
 
     <body onload="showevent()">
 

@@ -13,4 +13,12 @@ class Project extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    protected $fillable = [
+        'project_name',
+        'project_description',
+        'github',
+        'demo',
+        'picture',
+    ];
+
 }

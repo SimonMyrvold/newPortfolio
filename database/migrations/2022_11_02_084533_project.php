@@ -17,10 +17,10 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('project_name')->unique();
-            $table->text('project_description')->nullable();
-            $table->string('github')->nullable();
-            $table->string('demo')->nullable();
-            $table->string('picture');
+            $table->text('project_description');
+            $table->string('github');
+            $table->string('demo');
+            $table->string('picture')->nullable();
             $table->timestamps();
 
         });

@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\About;
-use App\Models\Certificate;
-use App\Models\Contact;
+
 
 class projectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,15 +25,11 @@ class projectController extends Controller
     public function index()
     {
 
-
-
         return view('project.index', [
             'projects' => Project::orderBy('id', 'desc')->get(),
             'abouts' => About::orderBy('id', 'desc')->get(),
-            'contacts' => Contact::orderBy('id','desc')->get(),
-            'certificates' => Certificate::orderBy('id','desc')->get()
-        ]);
-    
+        ]);  
+
     }
 
     /**
@@ -37,7 +39,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -48,7 +50,15 @@ class projectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Project::create([
+            'project_name' => $request->project_name,
+            'project_description' => $request->project_description,
+            'github' => $request->github,
+            'demo' => $request->demo,
+            'picture' => $this->storeImage($request)
+        ]);
+
+        return redirect(route('project.index'));
     }
 
     /**
@@ -59,16 +69,13 @@ class projectController extends Controller
      */
     public function show($id)
     {
-
+        
         return view('project.show', [
             'project' => Project::findOrFail($id),
             'about' => About::findOrFail($id),
-            'contacts' => Contact::findOrFail($id),
-            'certificates' => Certificate::findOrFail($id)
         ]);
 
 
-        
     }
 
     /**
@@ -79,7 +86,9 @@ class projectController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('project.edit', [
+            'project' => Project::where('id', $id)->first()
+        ]);
     }
 
     /**
@@ -91,7 +100,12 @@ class projectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        Project::where('id', $id)->update($request->except(['_token', '_method']));
+
+        return redirect(route('project.index'));
+
     }
 
     /**
@@ -103,5 +117,12 @@ class projectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function storeImage($request){
+        $newImageName = uniqid() . '-' . $request->project_name . '.' .
+        $request->picture->extension();
+
+        return $request->picture->move(public_path('pictures'), $newImageName);
     }
 }
