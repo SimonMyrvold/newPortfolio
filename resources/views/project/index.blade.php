@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -35,17 +37,21 @@
 
 @endforeach
 
+@if (Auth::id() === 1)
 @foreach ($projects as $project)
 
-    <form action="{{ route('project.destroy', $project->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit">
-            Delete
-        </button>
-    </form>
+<form action="{{ route('project.destroy', $project->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">
+        Delete
+    </button>
+</form>
 
 @endforeach
+@endif
+
+
 
 </body>
 </html>
