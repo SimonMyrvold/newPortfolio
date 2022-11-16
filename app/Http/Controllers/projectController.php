@@ -116,7 +116,10 @@ class projectController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Project::destroy($id);
+
+        return redirect(route('project.index'))->with('message', 'project has been deleted.');
     }
 
     private function storeImage($request){

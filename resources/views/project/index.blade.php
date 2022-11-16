@@ -13,6 +13,7 @@
 
 <h1>about</h1>
 
+{{ $abouts }}
 
 <br>
 
@@ -34,6 +35,17 @@
 
 @endforeach
 
+@foreach ($projects as $project)
+
+    <form action="{{ route('project.destroy', $project->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">
+            Delete
+        </button>
+    </form>
+
+@endforeach
 
 </body>
 </html>
