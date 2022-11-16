@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('wip');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

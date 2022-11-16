@@ -39,7 +39,9 @@ class projectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        if (auth::id() == 1){
+            return view('project.create');
+        }
     }
 
     /**
