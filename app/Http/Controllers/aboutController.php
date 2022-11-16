@@ -2,21 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\Models\About;
+use Illuminate\Http\Request;
 
-
-class projectController extends Controller
+class aboutController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index','show']);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,12 +15,9 @@ class projectController extends Controller
      */
     public function index()
     {
-
         return view('project.index', [
-            'projects' => Project::orderBy('id', 'desc')->get(),
             'abouts' => About::orderBy('id', 'desc')->get(),
         ]);  
-
     }
 
     /**
@@ -39,7 +27,7 @@ class projectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        //
     }
 
     /**
@@ -50,15 +38,7 @@ class projectController extends Controller
      */
     public function store(Request $request)
     {
-        Project::create([
-            'project_name' => $request->project_name,
-            'project_description' => $request->project_description,
-            'github' => $request->github,
-            'demo' => $request->demo,
-            'picture' => $this->storeImage($request)
-        ]);
-
-        return redirect(route('project.index'));
+        //
     }
 
     /**
@@ -69,12 +49,7 @@ class projectController extends Controller
      */
     public function show($id)
     {
-        
-        return view('project.show', [
-            'project' => Project::findOrFail($id),
-        ]);
-
-
+        //
     }
 
     /**
@@ -85,9 +60,7 @@ class projectController extends Controller
      */
     public function edit($id)
     {
-        return view('project.edit', [
-            'project' => Project::where('id', $id)->first()
-        ]);
+        //
     }
 
     /**
@@ -99,12 +72,7 @@ class projectController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-        Project::where('id', $id)->update($request->except(['_token', '_method']));
-
-        return redirect(route('project.index'));
-
+        //
     }
 
     /**
@@ -115,16 +83,6 @@ class projectController extends Controller
      */
     public function destroy($id)
     {
-
-        Project::destroy($id);
-
-        return redirect(route('project.index'))->with('message', 'project has been deleted.');
-    }
-
-    private function storeImage($request){
-        $newImageName = uniqid() . '-' . $request->project_name . '.' .
-        $request->picture->extension();
-
-        return $request->picture->move(public_path('pictures'), $newImageName);
+        //
     }
 }

@@ -11,45 +11,30 @@
 </head>
 <body>
 
-<a href="{{ route('project.create') }}">create</a>
-
-<h1>about</h1>
-
-{{ $abouts }}
-
-<br>
-
-
-
-<h1>project</h1>
-
-@foreach ($projects as $project)
-
+    {{ $abouts }}
+    
+    @foreach ($projects as $project)
+    
     <a href="{{ route('project.show', $project->id) }}">
         {{ $project->project_name }}
     </a>
-
-@endforeach
-
-@foreach ($projects as $project)
-
-<a href="{{ route('project.edit', $project->id) }}" class="block italic text-green-500 border-b-1 border-green-400">Edit</a>
-
-@endforeach
-
-@if (Auth::id() === 1)
-@foreach ($projects as $project)
-
-<form action="{{ route('project.destroy', $project->id) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit">
-        Delete
-    </button>
-</form>
-
-@endforeach
+    
+    @if (Auth::id() === 1)
+    
+    <a href="{{ route('project.edit', $project->id) }}" class="block italic text-green-500 border-b-1 border-green-400">Edit</a>
+    
+    <form action="{{ route('project.destroy', $project->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">
+            Delete
+        </button>
+    </form>
+    
+    <a href="{{ route('project.create') }}">create</a>
 @endif
+
+@endforeach
 
 
 

@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\aboutController;
 use App\Http\Controllers\projectController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +27,4 @@ require __DIR__.'/auth.php';
 Controller::class;
 
 Route::resource('project', projectController::class);
+
