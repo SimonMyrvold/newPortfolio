@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -36,9 +37,10 @@
             <div class="text-base md:text-sm text-gray-500 px-4 py-6">
                 Tags: @foreach ($project->tags as $tag)
                     {{ $tag->tag_name }}
+                    <i class="{{ $tag->picture }} fa-1x"></i>
                 @endforeach
             </div>
-    
+            <i class="fab fa-js"></i>
     </body>
     
 </body>

@@ -16,10 +16,6 @@
 
     </head>
 
-    {{-- <a href="{{ route('project.index') }}">project</a> --}}
-
-    
-
     <body onload="showevent()">
 
         <img class="background-img" src="img/backgroundImage.jpg" alt="">
@@ -66,48 +62,47 @@
         </section>
         
         <section id="kontakt-section">
-    
+            
             <div class="kontakt">
+            @foreach ($about->Contacts as $contact)
+            
                 <div class="kontakt-columns">
-                    <a href="https://twitter.com/Simon_Myrvold">
+                    <a href="{{ $contact->contact_link }}">
                     <div class="kontakt-columns-content">
-                        <i class="fab fa-twitter fa-7x"></i>
-                        <h2>Twitter</h2>
+                        <i class="{{ $contact->picture }}"></i>
+                        <h2>{{ $contact->contact_name }}</h2>
                     </div>
                     </a>
                 </div>
-                <div class="kontakt-columns">
-                    <a href="https://www.instagram.com/simon_myrvold/">
-                    <div class="kontakt-columns-content">
-                        <i class="fab fa-instagram fa-7x"></i>
-                        <h2>Instagram</h2>
-                    </div>
-                    </a>
-                </div>
-                <div class="kontakt-columns">
-                    <a href="https://www.linkedin.com/in/simon-myrvold-9766a0218/">
-                    <div class="kontakt-columns-content">
-                        <i class="fab fa-linkedin fa-7x"></i>
-                        <h2>Linkedin</h2>
-                    </div>
-                    </a>
-                </div>
-                <div class="kontakt-columns">
-                    <a href="https://github.com/">
-                    <div class="kontakt-columns-content">
-                        <i class="fab fa-github fa-7x"></i>
-                        <h2>Github</h2>
-                    </div>
-                    </a>
-                </div>
+                
+            @endforeach
             </div>
     
         </section>
     
         <div id="kontakt-text">
-            <h2><a href="mailto:simon.johan.myrvold@gmail.com">{{ $about->email }}</a></h2>
+            <h2><a href="mailto:{{ $about->email }}">{{ $about->email }}</a></h2>
             <h3>Phone number {{ $about->phoneNumber }}</h3>
         </div>
+
+        {{-- <section id="kontakt-section">
+            
+            <div class="kontakt">
+            @foreach ($about->Certificates as $certificate)
+            
+                <div class="kontakt-columns">
+                    <a href="{{ $certificate->certificate_link }}">
+                    <div class="kontakt-columns-content">
+                        <i class="{{ $certificate->picture }}"></i>
+                        <h2>{{ $certificate->certificate_name }}</h2>
+                    </div>
+                    </a>
+                </div>
+                
+            @endforeach
+            </div>
+    
+        </section> --}}
     
     </div>
 

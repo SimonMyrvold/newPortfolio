@@ -87,9 +87,11 @@ class projectController extends Controller
      */
     public function edit($id)
     {
-        return view('project.edit', [
-            'project' => Project::where('id', $id)->first()
-        ]);
+        if(auth::id() == 1){
+            return view('project.edit', [
+                'project' => Project::where('id', $id)->first()
+            ]);
+        }
     }
 
     /**
