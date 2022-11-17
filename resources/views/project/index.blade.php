@@ -116,7 +116,7 @@
                 @foreach ($projects as $project)
                 <div class="projekt-columns">
                     <div class="projekt-columns-content">
-                        <a href="{{ route('project.show', $project->id) }}" target="_blank">
+                        <a href="{{ route('project.show', $project->id) }}">
                         <img src="{{ $picture_link = Str::replace('C:\xampp\\htdocs\portfolio-upgrade\public', '', $project->picture) }}" alt="" width="100%" height="250px">
                         <p>{{ $project->project_name }}</p>
                         </a>
@@ -137,50 +137,8 @@
     
         </section>
     
-        <section id="kunskaper-section">
-    
-                <div class="kunskaper">
-                    <div class="kunskaper-columns">
-                        <div class="kunskaper-columns-content">
-                            <i class="fab fa-html5 fa-7x"></i>
-                            <h2>HTML</h2>
-                        </div>
-                    </div>
-                    <div class="kunskaper-columns">
-                        <div class="kunskaper-columns-content">
-                            <i class="fab fa-css3-alt fa-7x"></i>
-                            <h2>CSS</h2>
-                        </div>
-                    </div>
-                    <div class="kunskaper-columns">
-                        <div class="kunskaper-columns-content">
-                            <i class="fab fa-php fa-7x"></i>
-                            <h2>PHP</h2>
-                        </div>
-                    </div>
-                    <div class="kunskaper-columns">
-                        <div class="kunskaper-columns-content">
-                            <i class="fab fa-bootstrap fa-7x"></i>
-                            <h2>Bootstrap</h2>
-                        </div>
-                    </div>
-                </div>
-    
-        </section>
-    
         <section id="footer">
     
-            <div class="footer">
-    
-    
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="far fa-envelope"></i>
-              
-              <p class="footer-text"> SimonMyrvold </p>
-            </div>
-        
         </section>
     
     <script src="js/Main.js"></script>

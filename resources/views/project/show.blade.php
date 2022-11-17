@@ -22,14 +22,22 @@
                             <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">{{ $project->project_name }}</h1>
                             <p class="text-sm md:text-base font-normal text-gray-600"> {{ $project->created_at }}</p>
                 </div>
-    
+                
+                {{ $project->picture }}
+
                 <img src="{{ $picture_link = Str::replace('C:\xampp\\htdocs\portfolio-upgrade\public', '', $project->picture) }}" alt="" width="100%" height="250px">
     
                 <p class="py-6">{{ $project->project_description }}</p>
     
     
                 <h1 class="py-2 font-sans"><a href="{{ $project->github }}">Github</a></h1>
+
+                @if ($project->demo == 'none')
+                
+                @else
                 <h1 class="py-2 font-sans"><a href="{{ $project->demo }}">Demo</a></h1>
+                @endif
+
     
             </div>
     
@@ -40,7 +48,6 @@
                     <i class="{{ $tag->picture }} fa-1x"></i>
                 @endforeach
             </div>
-            <i class="fab fa-js"></i>
     </body>
     
 </body>
